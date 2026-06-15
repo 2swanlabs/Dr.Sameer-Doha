@@ -214,7 +214,7 @@ a{text-decoration:none;color:inherit}
 .section-sub{font-size:16px;color:var(--ink-soft);line-height:1.75;margin-top:14px;max-width:540px}
 .section-sub.centered{margin:14px auto 0}
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rlg);overflow:hidden}
-.why-card{background:var(--white);padding:40px 32px;transition:background 0.25s;position:relative}
+.why-card{background:var(--white);padding:40px 32px;transition:background 0.25s;position:relative;text-align:center;display:flex;flex-direction:column;align-items:center}
 .why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:0;background:var(--blue);transition:height 0.25s}
 .why-card:hover{background:var(--frost)}
 .why-card:hover::before{height:3px}
@@ -1014,7 +1014,7 @@ footer{background:#07111C;padding:72px 0 0}
           <div class="doc-photo-col">
             <picture>
               <source srcset="DoctorMobileView.png" media="(max-width:480px)"/>
-              <img src="doctor.png" alt="Dr. Sameer Kalandan"
+              <img src="Doctor.png" alt="Dr. Sameer Kalandan"
                    onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
             </picture>
             <div class="doc-photo-fallback" style="display:none">👨‍⚕️</div>
