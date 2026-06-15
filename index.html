@@ -840,6 +840,15 @@ footer{background:#07111C;padding:72px 0 0}
   .g-car-dot.active{width:22px;border-radius:99px;background:var(--blue)}
   .g-car-btn{width:40px;height:40px;border-radius:50%;background:var(--white);border:1.5px solid var(--bord-md);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);cursor:pointer;transition:all 0.2s;flex-shrink:0}
   .g-car-btn:hover{background:var(--blue);border-color:var(--blue);color:var(--white)}
+  /* Mobile-only: stronger dark gradient on left for text legibility, fully transparent on right */
+  .hero-bg-overlay{
+    background:linear-gradient(
+      90deg,
+      rgba(10,10,10,0.88) 0%,
+      rgba(10,10,10,0.55) 45%,
+      rgba(10,10,10,0.0) 100%
+    );
+  }
 </style>
 </head>
 <body>
