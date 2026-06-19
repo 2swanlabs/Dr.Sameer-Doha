@@ -1,1665 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Dr. Sameer Kalandan — Internal Medicine Specialist, Doha</title>
-<meta name="description" content="Dr. Sameer Kalandan, Specialist Internal Medicine Physician in Doha, Qatar. Compassionate, evidence-based adult healthcare."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Demo Access Token Expired</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "warm-gold": "#C5A059",
+          "surface": "#f9f9f7",
+          "primary": "#000000",
+          "on-surface": "#1a1c1b",
+          "on-surface-variant": "#474741",
+          "outline-variant": "#c8c7be",
+          "outline": "#787770",
+          "border-subtle": "#E5E5E3",
+          "secondary": "#775a19",
+        },
+        fontFamily: {
+          display: ["Playfair Display", "serif"],
+          body: ["Inter", "sans-serif"],
+        },
+        animation: { "fade-up": "fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards" },
+        keyframes: {
+          fadeUp: {
+            "0%":   { opacity: "0", transform: "translateY(20px)" },
+            "100%": { opacity: "1", transform: "translateY(0)" },
+          }
+        }
+      },
+    },
+  }
+</script>
 <style>
-/* ── TOKENS ── */
-:root {
-  --ink:       #0D1B2A;
-  --ink-mid:   #2C3E50;
-  --ink-soft:  #526070;
-  --ink-muted: #8497A8;
-  --blue:      #1C5D8F;
-  --blue-lt:   #E8F1F8;
-  --blue-mid:  #2A7BBF;
-  --frost:     #F0F6FB;
-  --base:      #F8F7F4;
-  --white:     #FFFFFF;
-  --red:       #C8393A;
-  --green:     #2E7D5E;
-  --green-lt:  #EAF5F0;
-  --border:    rgba(13,27,42,0.09);
-  --bord-md:   rgba(13,27,42,0.14);
-  --serif:     'Fraunces', Georgia, serif;
-  --sans:      'Instrument Sans', system-ui, sans-serif;
-  --max:       1260px;
-  --gutter:    48px;
-  --r:         12px;
-  --rlg:       20px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px;scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--base);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--base)}
-::-webkit-scrollbar-thumb{background:var(--blue);border-radius:99px}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
 
-/* ── TOP BAR ── */
-.topbar{height:3px;background:linear-gradient(90deg,var(--blue),#4BA3D8,var(--blue-mid))}
+  /* ── Background: hidden scrollable container ── */
+  #bg-scroll {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  #bg-scroll::-webkit-scrollbar { display: none; }
 
-/* ══════════════════════
-   NAVIGATION — change 3: slightly larger
-══════════════════════ */
-.site-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;transition:box-shadow 0.3s}
-.site-nav.scrolled{box-shadow:0 2px 20px rgba(13,27,42,0.08)}
-.nav-row{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);height:92px;display:flex;align-items:center;gap:0}
-.nav-brand{display:flex;align-items:center;gap:16px;flex-shrink:0;text-decoration:none}
-/* change 3: logo slightly larger */
-.nav-logo{width:60px;height:60px;border-radius:50%;overflow:hidden;background:var(--blue-lt);flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(28,93,143,0.15)}
-.nav-logo img{width:100%;height:100%;object-fit:contain}
-.nav-logo-fb{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--blue)}
-/* change 3: text slightly larger */
-.nav-title{font-family:var(--serif);font-size:18.5px;font-weight:500;color:var(--ink);line-height:1.2;letter-spacing:-0.01em}
-.nav-sub{font-size:12px;font-weight:500;color:var(--ink-muted);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
-.nav-divider{width:1px;height:34px;background:var(--bord-md);margin:0 36px;flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none;flex:1}
-.nav-links a{font-size:13px;font-weight:600;letter-spacing:0.04em;color:var(--ink-soft);transition:color 0.2s;position:relative;padding-bottom:2px}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:100%;height:1.5px;background:var(--blue);transition:right 0.25s ease}
-.nav-links a:hover,.nav-links a.is-active{color:var(--blue)}
-.nav-links a:hover::after,.nav-links a.is-active::after{right:0}
-.nav-actions{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}
-.btn-wa{display:inline-flex;align-items:center;gap:8px;background:var(--green-lt);color:var(--green);font-size:13px;font-weight:700;padding:10px 20px;border-radius:99px;border:1.5px solid rgba(46,125,94,0.2);transition:all 0.22s;white-space:nowrap}
-.btn-wa:hover{background:var(--green);color:var(--white);border-color:var(--green);transform:translateY(-1px)}
-.btn-appt{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--white);font-size:13px;font-weight:700;padding:10px 22px;border-radius:99px;transition:all 0.22s;white-space:nowrap}
-.btn-appt:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 6px 20px rgba(28,93,143,0.3)}
-/* change 4: hamburger completely removed — not shown even on mobile */
-.nav-hamburger{display:none !important}
-.mobile-drawer{display:none !important}
+  /* The actual background image div — height set by JS after image loads */
+  #bg-image {
+    width: 100%;
+    background-image: url('background.png');
+    background-size: 100% auto;   /* full width, natural height */
+    background-position: top center;
+    background-repeat: no-repeat;
+    filter: blur(4.5px) brightness(0.85);
+  }
 
-/* ══════════════════════
-   HERO — change 1: full-width bg image, change 2: eyebrow repositioned
-══════════════════════ */
-#hero{
-  position:relative;
-  min-height:680px;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-}
-/* Full-bleed background image */
-.hero-bg-img{
-  position:absolute;
-  inset:0;
-  z-index:0;
-}
-.hero-bg-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  display:block;
-  filter:brightness(0.9) saturate(1.02);
-}
-/* Dark gradient overlay — left side for text legibility, right stays clear */
-.hero-bg-overlay{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:linear-gradient(
-    100deg,
-    rgba(13,27,42,0.55) 0%,
-    rgba(13,27,42,0.28) 45%,
-    rgba(13,27,42,0.05) 100%
-  );
-}
-/* Content sits above bg */
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:var(--max);
-  margin:0 auto;
-  padding:100px var(--gutter) 100px;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  text-align:left;
-}
-/* change 2: eyebrow removed from top, headline starts immediately */
-.hero-h1{
-  font-family:var(--serif);
-  font-size:clamp(42px,5.5vw,70px);
-  font-weight:300;
-  line-height:1.07;
-  letter-spacing:-0.02em;
-  color:var(--white);
-  margin-bottom:24px;
-  max-width:640px;
-}
-.hero-h1 em{font-style:italic;font-weight:400;color:#7EC8F0}
-.hero-h1 strong{font-weight:600;color:var(--white)}
-.hero-rule{width:60px;height:2px;background:#7EC8F0;margin:24px 0;border-radius:99px}
-.hero-doc{display:flex;flex-direction:column;gap:4px;margin-bottom:28px}
-.hero-doc-name{font-family:var(--serif);font-size:26px;font-weight:500;color:var(--white);letter-spacing:-0.01em}
-.hero-doc-creds{font-size:13.5px;color:rgba(255,255,255,0.65);font-weight:400}
-.hero-doc-role{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#F89090;margin-top:4px}
-.hero-doc-role::before{content:'';width:16px;height:1.5px;background:#F89090;display:block}
-.hero-desc{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.72);max-width:520px;margin-bottom:36px}
-.hero-cta-row{display:flex;align-items:center;gap:14px;margin-bottom:40px;flex-wrap:wrap}
-.cta-primary{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--ink);font-size:14px;font-weight:700;padding:15px 32px;border-radius:99px;transition:all 0.22s;letter-spacing:0.01em;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
-.cta-primary:hover{background:var(--blue);color:var(--white);box-shadow:0 8px 28px rgba(28,93,143,0.4);transform:translateY(-2px)}
-.cta-whatsapp{display:inline-flex;align-items:center;gap:9px;background:transparent;color:rgba(255,255,255,0.9);font-size:14px;font-weight:700;padding:14px 28px;border-radius:99px;border:1.5px solid rgba(255,255,255,0.35);transition:all 0.22s}
-.cta-whatsapp:hover{background:var(--green);color:var(--white);border-color:var(--green);transform:translateY(-2px)}
-.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:99px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.82);backdrop-filter:blur(4px);transition:all 0.2s}
-.chip:hover{background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.4);color:var(--white)}
-.chip-dot{width:5px;height:5px;border-radius:50%;background:#7EC8F0;opacity:0.8;flex-shrink:0}
-/* change 2: location badge at bottom of hero */
-.hero-location-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  background:rgba(255,255,255,0.1);
-  border:1px solid rgba(255,255,255,0.2);
-  backdrop-filter:blur(8px);
-  border-radius:99px;
-  padding:9px 18px;
-  font-size:12px;
-  font-weight:600;
-  color:rgba(255,255,255,0.7);
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-  align-self:flex-start;
-}
-.hero-location-badge svg{color:rgba(255,255,255,0.5)}
-/* Availability floating card stays bottom-right */
-.hero-avail{
-  position:absolute;
-  bottom:32px;
-  right:var(--gutter);
-  z-index:3;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(12px);
-  border-radius:14px;
-  padding:14px 20px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  box-shadow:0 8px 32px rgba(13,27,42,0.2);
-}
-.avail-dot{width:10px;height:10px;border-radius:50%;background:#22C55E;flex-shrink:0;position:relative}
-.avail-dot::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:rgba(34,197,94,0.2);animation:ripple 2s ease infinite}
-@keyframes ripple{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.6);opacity:0}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.avail-text strong{display:block;font-size:13px;font-weight:700;color:var(--ink);line-height:1.2}
-.avail-text span{font-size:11px;color:var(--ink-muted)}
+  /* ── Card wrapper: locked to viewport ── */
+  #card-wrapper {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  #card-wrapper > * { pointer-events: auto; }
 
-/* ── TRUST BAR ── */
-.trust-bar{background:var(--ink);padding:0}
-.trust-bar-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:flex;align-items:stretch;overflow:hidden}
-.trust-item{flex:1;display:flex;align-items:center;gap:14px;padding:22px 28px;border-right:1px solid rgba(255,255,255,0.07)}
-.trust-item:last-child{border-right:none}
-.trust-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);flex-shrink:0}
-.trust-item-text strong{display:block;font-size:13px;font-weight:700;color:var(--white);line-height:1.3}
-.trust-item-text span{font-size:11.5px;color:rgba(255,255,255,0.45)}
+  /* ── Glass card ── */
+  .glass-card {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+      0 4px 6px -1px rgba(0,0,0,0.07),
+      0 10px 15px -3px rgba(0,0,0,0.05),
+      0 20px 25px -5px rgba(0,0,0,0.03);
+  }
 
-/* ── WHY ── */
-#why{background:var(--base);padding:100px 0}
-.section-head{margin-bottom:60px}
-.section-head.centered{text-align:center}
-.section-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
-.section-eyebrow::before,.section-eyebrow::after{content:'';display:block;height:1px;background:currentColor;opacity:.4;width:28px}
-.section-eyebrow.no-lines::before,.section-eyebrow.no-lines::after{display:none}
-.section-h2{font-family:var(--serif);font-size:clamp(34px,4vw,50px);font-weight:400;letter-spacing:-0.02em;color:var(--ink);line-height:1.12}
-.section-h2 em{font-style:italic;color:var(--blue)}
-.section-sub{font-size:16px;color:var(--ink-soft);line-height:1.75;margin-top:14px;max-width:540px}
-.section-sub.centered{margin:14px auto 0}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rlg);overflow:hidden}
-.why-card{background:var(--white);padding:40px 32px;transition:background 0.25s;position:relative;text-align:center;display:flex;flex-direction:column;align-items:center}
-.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:0;background:var(--blue);transition:height 0.25s}
-.why-card:hover{background:var(--frost)}
-.why-card:hover::before{height:3px}
-.why-num{font-family:var(--serif);font-size:11px;font-weight:600;color:var(--blue);opacity:.5;letter-spacing:.1em;margin-bottom:20px}
-/* why-icon-wrap: ensure custom image fills the entire container */
-.why-icon-wrap{width:52px;height:52px;border-radius:12px;background:var(--blue-lt);display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:20px;overflow:hidden;padding:0}
-.why-icon-wrap img{width:100%;height:100%;object-fit:cover;display:block;border-radius:12px}
-/* svc-icon: ensure custom image fills the entire 38x38 container */
-.svc-icon{width:38px;height:38px;border-radius:9px;background:var(--white);box-shadow:0 2px 8px rgba(13,27,42,0.07);display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0;overflow:hidden;padding:0}
-.svc-icon img{width:100%;height:100%;object-fit:cover;display:block;border-radius:9px}
-.why-card h3{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:10px;line-height:1.25;letter-spacing:-0.01em}
-.why-card p{font-size:13.5px;line-height:1.75;color:var(--ink-soft)}
 
-/* ══════════════════════
-   SERVICES
-══════════════════════ */
-#services{background:var(--white);padding:100px 0}
-.services-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rlg);overflow:hidden;margin-top:40px}
-.svc-card{background:var(--base);padding:24px 20px;display:flex;gap:14px;align-items:flex-start;transition:background 0.2s}
-.svc-card:hover{background:var(--frost)}
-.svc-card p{font-size:12px;color:var(--ink-muted);line-height:1.65}
-/* Doctor panel — strict 2-col: photo left | details right */
-.doctor-panel{position:sticky;top:100px}
-.doc-panel-card{
-  background:var(--ink);
-  border-radius:var(--rlg);
-  overflow:hidden;
-  position:relative;
-  display:grid;
-  grid-template-columns:220px 1fr;
-  grid-template-rows:auto auto;
-}
-/* Left column: photo fills entire height */
-.doc-photo-col{
-  grid-row:1 / 3;
-  background:linear-gradient(180deg,#0f2235 0%,#0a1a2e 100%);
-  display:flex;
-  align-items:stretch;
-  justify-content:center;
-  overflow:hidden;
-  min-height:600px;
-}
-.doc-photo-col picture{
-  width:100%;
-  height:100%;
-  display:block;
-}
-.doc-photo-col img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:top center;
-  display:block;
-  filter:brightness(1.05) contrast(1.03);
-}
-.doc-photo-col .doc-photo-fallback{
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:72px;
-  background:linear-gradient(180deg,rgba(28,93,143,0.25),rgba(28,93,143,0.1));
-}
-/* Right column top: text details */
-.doc-text-col{
-  padding:28px 26px 24px;
-  display:flex;
-  flex-direction:column;
-  background:var(--ink);
-}
-.doc-panel-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px}
-.doc-panel-name{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--white);line-height:1.2;letter-spacing:-0.01em;margin-bottom:4px}
-.doc-panel-creds{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:3px}
-.doc-panel-role{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:18px}
-.doc-panel-quote{font-family:var(--serif);font-size:13.5px;font-style:italic;line-height:1.7;color:rgba(255,255,255,0.72);padding:12px 14px;background:rgba(255,255,255,0.05);border-radius:10px;border-left:2px solid rgba(255,255,255,0.15);margin-bottom:18px}
-.doc-features{display:flex;flex-direction:column;gap:8px}
-.doc-feat{display:flex;align-items:center;gap:9px;font-size:12.5px;color:rgba(255,255,255,0.8)}
-.feat-check{width:18px;height:18px;border-radius:50%;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);display:flex;align-items:center;justify-content:center;color:#4ADE80;flex-shrink:0}
-/* Bottom bar spans full width below both columns */
-.doc-panel-bottom{
-  grid-column:1 / 3;
-  background:var(--blue);
-  padding:16px 26px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.doc-panel-bottom p{font-size:13px;font-weight:600;color:rgba(255,255,255,.9)}
-.doc-panel-bottom a{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.15);color:var(--white);font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:99px;transition:background 0.2s}
-.doc-panel-bottom a:hover{background:rgba(255,255,255,0.25)}
 
-/* ══════════════════════
-   TESTIMONIALS
-   change 6: mobile carousel (1 card, auto-advance)
-══════════════════════ */
-#testimonials{background:var(--base);padding:100px 0}
-.testi-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:56px}
-.testi-intro-right{display:flex;align-items:center;justify-content:flex-end;gap:20px}
-.rating-badge{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-align:center;box-shadow:0 4px 16px rgba(13,27,42,0.05)}
-.rating-num{font-family:var(--serif);font-size:42px;font-weight:400;color:var(--ink);line-height:1;margin-bottom:4px}
-.rating-stars{display:flex;justify-content:center;gap:3px;margin-bottom:4px}
-.rating-stars svg{color:#F59E0B}
-.rating-label{font-size:11px;color:var(--ink-muted);font-weight:500}
-.review-source{display:flex;align-items:center;gap:8px;padding:12px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;font-size:12.5px;font-weight:600;color:var(--ink-soft);transition:all 0.2s}
-.review-source:hover{border-color:rgba(28,93,143,.3);color:var(--blue)}
-/* Desktop grid */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.testi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rlg);padding:28px 26px;display:flex;flex-direction:column;gap:16px;transition:transform 0.22s,box-shadow 0.22s;position:relative;overflow:hidden}
-.testi-card::before{content:'"';position:absolute;top:-10px;right:20px;font-family:var(--serif);font-size:100px;line-height:1;color:var(--blue);opacity:.05;pointer-events:none}
-.testi-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(13,27,42,0.07)}
-.testi-stars{display:flex;gap:2px}
-.testi-stars svg{color:#F59E0B}
-.testi-body{font-size:14px;line-height:1.8;color:var(--ink-soft);font-style:italic;flex:1}
-.testi-author{display:flex;align-items:center;gap:11px;padding-top:16px;border-top:1px solid var(--border)}
-.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue-lt);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:15px;font-weight:600;color:var(--blue);flex-shrink:0}
-.testi-name{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.2}
-.testi-tag{font-size:11px;color:var(--ink-muted)}
-.testi-score{margin-left:auto;background:var(--blue-lt);color:var(--blue);font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:99px}
-.gmaps-row{text-align:center;margin-top:44px}
-.btn-gmaps{display:inline-flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--bord-md);color:var(--ink-soft);font-size:13.5px;font-weight:600;padding:13px 28px;border-radius:99px;box-shadow:0 2px 12px rgba(13,27,42,.05);transition:all 0.2s}
-.btn-gmaps:hover{border-color:rgba(28,93,143,.3);color:var(--blue);transform:translateY(-1px)}
-/* Mobile carousel — hidden on desktop */
-.testi-carousel{display:none}
-
-/* ── CTA ── */
-#cta{background:var(--ink);padding:96px 0;position:relative;overflow:hidden}
-.cta-bg-shape{position:absolute;border-radius:50%;pointer-events:none}
-.cta-bg-shape.s1{width:500px;height:500px;background:rgba(28,93,143,.12);top:-150px;right:-100px}
-.cta-bg-shape.s2{width:300px;height:300px;background:rgba(28,93,143,.08);bottom:-80px;left:-60px}
-.cta-inner{text-align:center;max-width:800px;margin:0 auto;position:relative;z-index:1}
-.cta-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:99px;margin-bottom:28px}
-.cta-h2{font-family:var(--serif);font-size:clamp(34px,5vw,52px);font-weight:300;letter-spacing:-0.02em;line-height:1.15;color:var(--white);margin-bottom:18px}
-.cta-h2 em{font-style:italic;font-weight:400}
-.cta-sub{font-size:16px;color:rgba(255,255,255,.58);line-height:1.75;margin-bottom:44px}
-.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:44px}
-.cta-btn-white{display:inline-flex;align-items:center;gap:9px;background:var(--white);color:var(--ink);font-size:14px;font-weight:700;padding:15px 34px;border-radius:99px;transition:all 0.22s;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.cta-btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.22)}
-.cta-btn-outline{display:inline-flex;align-items:center;gap:9px;background:transparent;color:rgba(255,255,255,.85);font-size:14px;font-weight:600;padding:14px 30px;border-radius:99px;border:1.5px solid rgba(255,255,255,.2);transition:all 0.22s}
-.cta-btn-outline:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
-/* 2-column CTA strip */
-.cta-info-strip{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);border-radius:var(--rlg);overflow:hidden}
-.cta-info-item{background:rgba(255,255,255,.03);padding:22px 20px;text-align:left}
-.cta-info-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px}
-.cta-info-value{font-size:13px;color:rgba(255,255,255,.78);line-height:1.65}
-.cta-info-value a{color:rgba(255,255,255,.78);transition:color 0.2s}
-.cta-info-value a:hover{color:var(--white)}
-/* embedded map in CTA */
-.cta-map-wrap{border-radius:var(--rlg);overflow:hidden;margin-top:28px;border:1px solid rgba(255,255,255,.07)}
-.cta-map-wrap iframe{display:block;width:100%;height:280px;border:none;filter:grayscale(20%) contrast(1.05)}
-
-/* ── FOOTER ── */
-footer{background:#07111C;padding:72px 0 0}
-.footer-body{display:grid;grid-template-columns:2fr 1fr 1fr 1.6fr;gap:52px;padding-bottom:60px}
-.footer-brand{display:flex;align-items:center;gap:13px;margin-bottom:18px}
-.footer-logo{width:46px;height:46px;border-radius:50%;overflow:hidden;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.footer-logo img{width:100%;height:100%;object-fit:contain}
-.footer-logo-fb{font-family:var(--serif);font-size:18px;color:var(--white)}
-.footer-clinic-name{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--white);line-height:1.3}
-.footer-clinic-role{font-size:10.5px;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
-.footer-tagline{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.42);margin-bottom:24px;max-width:320px}
-.footer-socials{display:flex;gap:9px}
-.f-social{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);transition:all 0.2s}
-.f-social:hover{background:var(--blue);border-color:var(--blue);color:var(--white);transform:translateY(-2px)}
-.footer-col h5{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.07)}
-.footer-links{display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:13.5px;color:rgba(255,255,255,.45);transition:color 0.2s;display:flex;align-items:center;gap:8px}
-.footer-links a::before{content:'';width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;transition:background 0.2s}
-.footer-links a:hover{color:var(--white)}
-.footer-links a:hover::before{background:var(--blue)}
-.footer-contact-row{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
-.f-ci{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);flex-shrink:0;margin-top:1px}
-.f-ct strong{display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:2px;letter-spacing:.04em}
-.f-ct span,.f-ct a{font-size:13px;color:rgba(255,255,255,.4);line-height:1.65;transition:color 0.2s}
-.f-ct a:hover{color:var(--white)}
-.hours-block{margin-top:8px}
-.hrow{display:flex;justify-content:space-between;font-size:12.5px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.38)}
-.hrow:last-child{border:none}
-.hrow .hday{font-weight:600;color:rgba(255,255,255,.6)}
-.f-maps-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px;color:rgba(255,255,255,.4);padding:10px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:9px;transition:all 0.2s;width:100%;justify-content:center}
-.f-maps-link:hover{background:rgba(255,255,255,.07);color:var(--white)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.06)}
-.footer-bottom-row{max-width:var(--max);margin:0 auto;padding:20px var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:12px;color:rgba(255,255,255,.25)}
-.footer-legal{display:flex;gap:18px}
-.footer-legal a{font-size:12px;color:rgba(255,255,255,.25);transition:color 0.2s}
-.footer-legal a:hover{color:rgba(255,255,255,.6)}
-.footer-credit{font-size:12px;color:rgba(255,255,255,.22)}
-.footer-credit a{color:rgba(255,255,255,.45);font-weight:700;transition:color 0.2s}
-.footer-credit a:hover{color:var(--white)}
-
-/* ── SCROLL REVEAL ── */
-.sr{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
-.sr.d1{transition-delay:.06s}.sr.d2{transition-delay:.12s}.sr.d3{transition-delay:.18s}.sr.d4{transition-delay:.24s}
-.sr.visible{opacity:1;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){.sr{transition:none;opacity:1;transform:none}*{animation-duration:.01ms!important}}
-
-/* ══════════════════════════════════════
-   GALLERY — TABBED FILMSTRIP + EXPANDED
-══════════════════════════════════════ */
-#gallery {
-  background: var(--base);
-  padding: 100px 0;
-}
-.gallery-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-/* ── Outer shell ── */
-.gal-shell {
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  overflow: hidden;
-  background: var(--white);
-  box-shadow: 0 8px 40px rgba(13,27,42,0.06);
-}
-
-/* ── Tab bar ── */
-.gal-tabbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--border);
-  background: var(--white);
-}
-.gal-tabs {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.gal-tab {
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1.5px solid var(--border);
-  color: var(--ink-soft);
-  cursor: pointer;
-  transition: all 0.2s;
-  background: transparent;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-}
-.gal-tab:hover {
-  border-color: rgba(28,93,143,0.3);
-  color: var(--blue);
-  background: var(--blue-lt);
-}
-.gal-tab.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: var(--white);
-}
-.gal-count {
-  font-size: 12px;
-  color: var(--ink-muted);
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* ── Thumbnail filmstrip ── */
-.gal-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border);
-  background: var(--base);
-}
-.gal-thumb {
-  position: relative;
-  height: 110px;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.22s;
-  background: var(--blue-lt);
-  flex-shrink: 0;
-}
-.gal-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  background: #f4f6f8;
-  transition: transform 0.35s ease, filter 0.25s;
-  filter: brightness(0.96) saturate(0.95);
-}
-.gal-thumb:hover img {
-  transform: scale(1.06);
-  filter: brightness(1) saturate(1.05);
-}
-.gal-thumb.active {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 2px rgba(28,93,143,0.15);
-}
-.gal-thumb.active img {
-  filter: brightness(1) saturate(1.05);
-}
-.gal-thumb-badge {
-  position: absolute;
-  bottom: 7px;
-  left: 7px;
-  background: rgba(13,27,42,0.65);
-  backdrop-filter: blur(6px);
-  color: rgba(255,255,255,0.9);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 99px;
-  border: 1px solid rgba(255,255,255,0.1);
-  pointer-events: none;
-}
-/* Hidden thumb (filtered out) */
-.gal-thumb.hidden { display: none; }
-
-/* ── Expanded view ── */
-.gal-expand {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  min-height: 320px;
-}
-.gal-expand-img {
-  position: relative;
-  overflow: hidden;
-  background: #f4f6f8;
-  min-height: 360px;
-}
-.gal-expand-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  filter: brightness(0.98) saturate(1.02);
-  transition: opacity 0.3s ease;
-  background: #f4f6f8;
-}
-.gal-expand-img.changing img { opacity: 0; }
-
-/* Expand-to-fullscreen button */
-.gal-fullscreen {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(13,27,42,0.55);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.gal-fullscreen:hover { background: rgba(13,27,42,0.8); }
-
-/* Info panel */
-.gal-info {
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-left: 1px solid var(--border);
-  background: var(--white);
-}
-.gal-info-top { display: flex; flex-direction: column; gap: 0; }
-.gal-info-tag {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.gal-info-tag::before {
-  content: '';
-  width: 20px;
-  height: 2px;
-  background: var(--blue);
-  border-radius: 99px;
-  display: block;
-  flex-shrink: 0;
-}
-.gal-info-title {
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  margin-bottom: 14px;
-}
-.gal-info-desc {
-  font-size: 14px;
-  line-height: 1.75;
-  color: var(--ink-soft);
-}
-.gal-info-bottom { display: flex; flex-direction: column; gap: 16px; }
-.gal-counter {
-  font-size: 12px;
-  color: var(--ink-muted);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.gal-counter-bar {
-  flex: 1;
-  height: 2px;
-  background: var(--border);
-  border-radius: 99px;
-  overflow: hidden;
-}
-.gal-counter-fill {
-  height: 100%;
-  background: var(--blue);
-  border-radius: 99px;
-  transition: width 0.35s ease;
-}
-.gal-nav-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.gal-nav-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid var(--bord-md);
-  background: var(--white);
-  color: var(--ink-soft);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-  flex-shrink: 0;
-}
-.gal-nav-btn:hover {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: var(--white);
-}
-.gal-fullscreen-btn {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--blue);
-  padding: 9px 16px;
-  border-radius: 99px;
-  border: 1.5px solid rgba(28,93,143,0.25);
-  background: var(--blue-lt);
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.gal-fullscreen-btn:hover {
-  background: var(--blue);
-  color: var(--white);
-  border-color: var(--blue);
-}
-
-/* ── Mobile Gallery Carousel ── */
-.gallery-carousel { display: none; }
-
-/* ── Lightbox ── */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(7,17,28,0.96);
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  backdrop-filter: blur(10px);
-}
-.lightbox.open { display: flex; }
-.lightbox-img {
-  max-width: 90vw;
-  max-height: 88vh;
-  border-radius: 12px;
-  object-fit: contain;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
-  animation: lbFadeIn 0.25s ease;
-}
-@keyframes lbFadeIn { from{opacity:0;transform:scale(0.97)} to{opacity:1;transform:scale(1)} }
-.lightbox-close {
-  position: absolute;
-  top: 20px; right: 24px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.85);
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
-}
-.lightbox-close:hover { background: rgba(255,255,255,0.2); }
-.lightbox-caption {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(13,27,42,0.7);
-  backdrop-filter: blur(8px);
-  color: rgba(255,255,255,0.85);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 9px 20px;
-  border-radius: 99px;
-  white-space: nowrap;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.lightbox-nav {
-  position: absolute;
-  top: 50%; transform: translateY(-50%);
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.85);
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
-}
-.lightbox-nav:hover { background: rgba(255,255,255,0.22); }
-.lightbox-nav.prev { left: 20px; }
-.lightbox-nav.next { right: 20px; }
-
-/* ══════════════════════
-   RESPONSIVE
-══════════════════════ */
-@media(max-width:1060px){
-  :root{--gutter:28px}
-  .why-grid{grid-template-columns:1fr 1fr}
-  .services-layout{grid-template-columns:1fr}
-  .doctor-panel{position:static}
-  .doc-panel-card{grid-template-columns:190px 1fr}
-  .doc-photo-col{min-height:515px}
-  .testi-intro{grid-template-columns:1fr;gap:24px}
-  .testi-intro-right{justify-content:flex-start}
-  .testi-grid{grid-template-columns:1fr 1fr}
-  /* CTA strip already 2-col on desktop, stays 2-col on tablet */
-  .footer-body{grid-template-columns:1fr 1fr;gap:36px}
-  .trust-bar-inner{flex-wrap:wrap}
-  .trust-item{flex:1 1 50%;border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
-  /* TABLET: hide nav links & WA button; keep only brand + Book Appointment */
-  .nav-links,.nav-divider,.btn-wa{display:none}
-  .nav-actions{display:flex}
-  .btn-appt{display:inline-flex}
-  /* Gallery: tablet — 3 thumbs visible, info panel narrower */
-  .gal-strip{grid-template-columns:repeat(3,1fr)}
-  .gal-expand{grid-template-columns:1fr 280px}
-}
-@media(max-width:480px){
-  :root{--gutter:18px}
-  /* MOBILE: hide everything in nav except brand (logo + title) */
-  .nav-links,.nav-divider,.nav-actions{display:none}
-  .nav-row{height:72px}
-  .nav-logo{width:46px;height:46px}
-  .nav-title{font-size:15px}
-  #hero{min-height:100svh}
-  .hero-content{padding:80px var(--gutter) 80px}
-  .hero-h1{font-size:34px}
-  .why-grid{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr}
-  /* Doctor panel stacks on mobile */
-  .doc-panel-card{grid-template-columns:1fr;grid-template-rows:auto auto auto}
-  .doc-photo-col{grid-row:auto;min-height:372px;max-height:458px}
-  .doc-photo-col picture{width:100%;height:100%;display:block}
-  .doc-photo-col img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-  .doc-text-col{grid-row:auto}
-  .doc-panel-bottom{grid-column:1}
-  .testi-grid{display:none}
-  .testi-carousel{display:block;position:relative}
-  .testi-track{overflow:hidden;border-radius:var(--rlg)}
-  .testi-slide{display:none}
-  .testi-slide.active{display:flex;flex-direction:column;gap:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--rlg);padding:28px 24px;animation:slideIn 0.35s ease}
-  @keyframes slideIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
-  .testi-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}
-  .testi-dots{display:flex;gap:7px;align-items:center}
-  .testi-dot{width:7px;height:7px;border-radius:50%;background:var(--bord-md);transition:all 0.25s;cursor:pointer}
-  .testi-dot.active{width:22px;border-radius:99px;background:var(--blue)}
-  .testi-btn{width:40px;height:40px;border-radius:50%;background:var(--white);border:1.5px solid var(--bord-md);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);cursor:pointer;transition:all 0.2s;flex-shrink:0}
-  .testi-btn:hover{background:var(--blue);border-color:var(--blue);color:var(--white)}
-  .cta-info-strip{grid-template-columns:1fr}
-  .cta-map-wrap iframe{height:220px}
-  .footer-body{grid-template-columns:1fr;gap:28px}
-  .footer-bottom-row{flex-direction:column;text-align:center}
-  .trust-item{flex:1 1 100%}
-  /* Gallery: mobile carousel replaces tabbed layout */
-  .gal-shell{display:none}
-  .gallery-carousel{display:block;position:relative}
-  .g-car-track{overflow:hidden;border-radius:var(--rlg)}
-  .g-car-slide{display:none}
-  .g-car-slide.active{display:block;animation:gSlideIn 0.35s ease}
-  @keyframes gSlideIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
-  .g-car-slide img{width:100%;height:280px;object-fit:contain;border-radius:var(--rlg);display:block;background:#f4f6f8;}
-  .g-car-info{margin-top:12px;text-align:center}
-  .g-car-tag{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:4px}
-  .g-car-title{font-size:13.5px;font-weight:600;color:var(--ink)}
-  .g-car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px}
-  .g-car-dots{display:flex;gap:6px;align-items:center}
-  .g-car-dot{width:7px;height:7px;border-radius:50%;background:var(--bord-md);transition:all 0.25s;cursor:pointer;border:none}
-  .g-car-dot.active{width:22px;border-radius:99px;background:var(--blue)}
-  .g-car-btn{width:40px;height:40px;border-radius:50%;background:var(--white);border:1.5px solid var(--bord-md);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);cursor:pointer;transition:all 0.2s;flex-shrink:0}
-  .g-car-btn:hover{background:var(--blue);border-color:var(--blue);color:var(--white)}
-  /* Mobile-only: stronger dark gradient on left for text legibility, fully transparent on right */
-  .hero-bg-overlay{
-    background:linear-gradient(
-      90deg,
-      rgba(10,10,10,0.88) 0%,
-      rgba(10,10,10,0.55) 45%,
-      rgba(10,10,10,0.0) 100%
-    );
+  /* Fade image into curve */
+  .hero-image-fit {
+    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
   }
 </style>
 </head>
-<body>
+<body class="font-body antialiased text-on-surface">
 
-<div class="topbar"></div>
-
-<!-- ══ NAVIGATION ══ -->
-<header class="site-nav" id="siteNav">
-  <div class="nav-row">
-    <a href="#hero" class="nav-brand">
-      <div class="nav-logo">
-        <img src="logo.jpg" alt="Dr. Sameer's Clinic Logo"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <span class="nav-logo-fb" style="display:none">S</span>
-      </div>
-      <div class="nav-identity">
-        <div class="nav-title">Dr. Sameer's Internal Medicine Clinic</div>
-        <div class="nav-sub">Specialist Physician · Doha, Qatar</div>
-      </div>
-    </a>
-    <div class="nav-divider"></div>
-    <ul class="nav-links">
-      <li><a href="#hero" class="is-active">Home</a></li>
-      <li><a href="#why">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#cta">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a href="https://wa.me/97466607890" target="_blank" rel="noopener" class="btn-wa">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="tel:+97466607890" class="btn-appt">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Book Appointment
-      </a>
-    </div>
-    <!-- change 4: no hamburger rendered -->
-  </div>
-</header>
-
-<!-- ══ HERO — full-width background image ══ -->
-<section id="hero">
-  <!-- change 1: full-bleed bg image, no clip-path or weird shape -->
-  <div class="hero-bg-img">
-    <img src="clinic.webp" alt="Dr. Sameer's Internal Medicine Clinic, Doha Qatar"
-         onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#0f2235,#0D1B2A)'"/>
-  </div>
-  <div class="hero-bg-overlay"></div>
-
-  <!-- change 2: eyebrow removed from top of text -->
-  <div class="hero-content">
-    <h1 class="hero-h1">
-      <em>Comprehensive</em> care<br>
-      for your health,<br>
-      <strong>rooted in trust.</strong>
-    </h1>
-    <div class="hero-rule"></div>
-    <div class="hero-doc">
-      <div class="hero-doc-name">Dr. Sameer Kalandan</div>
-      <div class="hero-doc-creds">MBBS, MD (Internal Medicine)</div>
-      <span class="hero-doc-role">Specialist Physician</span>
-    </div>
-    <p class="hero-desc">Evidence-based, compassionate healthcare focused on prevention, accurate diagnosis, and the thoughtful management of adult medical conditions — treating every patient as a whole person.</p>
-    <div class="hero-cta-row">
-      <a href="tel:+97466607890" class="cta-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Book Appointment
-      </a>
-      <a href="https://wa.me/97466607890" target="_blank" rel="noopener" class="cta-whatsapp">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Consultation
-      </a>
-    </div>
-    <!-- location badge at bottom of hero -->
-    <div class="hero-location-badge">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Internal Medicine Specialist &nbsp;·&nbsp; Doha, Qatar
-    </div>
-  </div>
-
-</section>
-
-<!-- ══ TRUST BAR ══ -->
-<div class="trust-bar">
-  <div class="trust-bar-inner">
-    <div class="trust-item">
-      <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div class="trust-item-text"><strong>Evidence-Based Medicine</strong><span>Every recommendation backed by clinical research</span></div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-      <div class="trust-item-text"><strong>Patient-First Philosophy</strong><span>Listening before prescribing, always</span></div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <div class="trust-item-text"><strong>Flexible Clinic Hours</strong><span>Open 6 days, morning &amp; evening slots</span></div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="trust-item-text"><strong>Most Insurances Accepted</strong><span>Cashless consultations available</span></div>
-    </div>
-  </div>
+<!-- Blurred scrollable background -->
+<div id="bg-scroll">
+  <div id="bg-image"></div>
 </div>
-
-<!-- ══ WHY CHOOSE US ══ -->
-<section id="why">
-  <div class="wrap">
-    <div class="section-head centered sr">
-      <div class="section-eyebrow">Why Choose Us</div>
-      <h2 class="section-h2">Experience. <em>Compassion.</em> Results.</h2>
-      <p class="section-sub centered">Built on the belief that exceptional medicine combines clinical mastery with genuine care for every individual patient.</p>
-    </div>
-    <div class="why-grid sr">
-      <div class="why-card">
-        <div class="why-num">01</div>
-        <div class="why-icon-wrap"><img src="icon1.PNG" alt="Proven Clinical Experience icon"/></div>
-        <h3>Proven Clinical Experience</h3>
-        <p>Years of dedicated internal medicine practice with a commitment to staying current with the latest evidence-based advances in adult healthcare.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-num">02</div>
-        <div class="why-icon-wrap"><img src="icon2.PNG" alt="Specialist Diagnostic Expertise icon"/></div>
-        <h3>Specialist Diagnostic Expertise</h3>
-        <p>Advanced diagnosis across the full spectrum of internal medicine — from complex chronic conditions to acute adult medical concerns.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-num">03</div>
-        <div class="why-icon-wrap"><img src="icon3.PNG" alt="Patient-Centred Approach icon"/></div>
-        <h3>Patient-Centred Approach</h3>
-        <p>Every consultation begins with listening. We value continuity of care, clear communication, and treating patients with genuine empathy.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-num">04</div>
-        <div class="why-icon-wrap"><img src="icon4.PNG" alt="Comprehensive Whole-Person Care icon"/></div>
-        <h3>Comprehensive Whole-Person Care</h3>
-        <p>Healthcare that addresses physical health, lifestyle factors, and long-term wellbeing — not just the immediate symptom that brought you in.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ SERVICES ══ -->
-<section id="services" style="background:var(--white)">
-  <div class="wrap">
-    <div class="services-layout">
-
-      <!-- LEFT: service grid -->
-      <div>
-        <div class="section-head sr">
-          <div class="section-eyebrow no-lines" style="justify-content:flex-start">Our Services</div>
-          <h2 class="section-h2">Complete Care for<br><em>Your Good Health</em></h2>
-          <p class="section-sub">A comprehensive range of internal medicine services delivered with clinical precision and personal attention.</p>
-        </div>
-        <div class="services-grid sr">
-          <div class="svc-card"><div class="svc-icon"><img src="serviceicon1.PNG" alt="Diabetes Management icon"/></div><div><h4>Diabetes Management</h4><p>Personalised glucose control and complication prevention.</p></div></div>
-          <div class="svc-card"><div class="svc-icon"><img src="serviceicon2.PNG" alt="Hypertension Care icon"/></div><div><h4>Hypertension Care</h4><p>Blood pressure monitoring and cardiovascular risk reduction.</p></div></div>
-          <div class="svc-card"><div class="svc-icon"><img src="serviceicon3.PNG" alt="Preventive Health icon"/></div><div><h4>Preventive Health Check-ups</h4><p>Structured screenings to detect health risks early.</p></div></div>
-          <div class="svc-card"><div class="svc-icon"><img src="serviceicon4.PNG" alt="Respiratory Conditions icon"/></div><div><h4>Respiratory Conditions</h4><p>Assessment and management of breathing disorders.</p></div></div>
-          <div class="svc-card"><div class="svc-icon"><img src="serviceicon5.PNG" alt="Thyroid Disorders icon"/></div><div><h4>Thyroid Disorders</h4><p>Diagnosis and treatment of thyroid function abnormalities.</p></div></div>
-          <div class="svc-card"><div class="svc-icon"><img src="serviceicon6.PNG" alt="Lifestyle and Nutrition icon"/></div><div><h4>Lifestyle &amp; Nutrition</h4><p>Diet, exercise and sustainable healthy habit guidance.</p></div></div>
-          <div class="svc-card"><div class="svc-icon"><img src="serviceicon7.PNG" alt="Adult Vaccinations icon"/></div><div><h4>Adult Vaccinations</h4><p>Complete immunization schedules for adult preventive care.</p></div></div>
-          <div class="svc-card"><div class="svc-icon"><img src="serviceicon8.PNG" alt="General Internal Medicine icon"/></div><div><h4>General Internal Medicine</h4><p>Expert consultations for a broad range of adult concerns.</p></div></div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Doctor panel — photo left | text right -->
-      <div class="doctor-panel sr">
-        <div class="doc-panel-card">
-
-          <!-- LEFT: photo only -->
-          <div class="doc-photo-col">
-            <picture>
-              <source srcset="DoctorMobileView.png" media="(max-width:480px)"/>
-              <img src="Doctor.png" alt="Dr. Sameer Kalandan"
-                   onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
-            </picture>
-            <div class="doc-photo-fallback" style="display:none">👨‍⚕️</div>
-          </div>
-
-          <!-- RIGHT: all text details -->
-          <div class="doc-text-col">
-            <div class="doc-panel-label">Your Physician</div>
-            <div class="doc-panel-name">Dr. Sameer<br>Kalandan</div>
-            <div class="doc-panel-creds">MBBS, MD (Internal Medicine)</div>
-            <div class="doc-panel-role">Specialist Physician</div>
-            <div class="doc-panel-quote">"Our goal here is to provide every patient the time, attention, and clinical expertise they deserve — combining the best of modern medicine with genuine compassion." ~ Your Custom Message</div>
-            <div class="doc-features">
-              <div class="doc-feat"><div class="feat-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div>Specialist in Internal Medicine</div>
-              <div class="doc-feat"><div class="feat-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div>Preventive Care Focus</div>
-              <div class="doc-feat"><div class="feat-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div>Chronic Disease Management</div>
-              <div class="doc-feat"><div class="feat-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div>Patient-First Consultations</div>
-              <div class="doc-feat"><div class="feat-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div>Most Insurance Plans Accepted</div>
-            </div>
-          </div>
-
-          <!-- BOTTOM BAR: spans full width -->
-          <div class="doc-panel-bottom">
-            <p>Ready to consult?</p>
-            <a href="tel:+97466607890">Call Now <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══ TESTIMONIALS ══ -->
-<section id="testimonials">
-  <div class="wrap">
-
-    <div class="testi-intro sr">
-      <div>
-        <div class="section-eyebrow no-lines" style="justify-content:flex-start;margin-bottom:16px">Patient Reviews</div>
-        <h2 class="section-h2">Trusted by families<br>across <em>Doha</em></h2>
-      </div>
-      <div class="testi-intro-right">
-        <div class="rating-badge">
-          <div class="rating-num">5.0</div>
-          <div class="rating-stars">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="rating-label">Google Rating</div>
-        </div>
-        <a href="https://www.google.com/maps/place/Dr.Sameer%27s+Internal+Medicine+Clinic+(Specialist+Physician)/@25.2833124,51.523192,20z" target="_blank" rel="noopener" class="review-source">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Read on Google
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- DESKTOP grid (3 cols) -->
-    <div class="testi-grid">
-      <!-- card helper macro repeated -->
-      <div class="testi-card sr d1">
-        <div class="testi-stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p class="testi-body">He was attentive and thorough, taking time to listen carefully and explain the condition and treatment plan clearly. His calm and reassuring approach made the visit comfortable. I would confidently recommend him.</p>
-        <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Ramshida K.A</div><div class="testi-tag">Verified Patient</div></div><div class="testi-score">★ 5.0</div></div>
-      </div>
-      <div class="testi-card sr d2">
-        <div class="testi-stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p class="testi-body">Excellent experience. The staff were friendly and efficient, and the overall environment was clean and comfortable. I highly recommend Dr. Sameer Kalandan to anyone looking for a knowledgeable and caring physician.</p>
-        <div class="testi-author"><div class="testi-avatar">F</div><div><div class="testi-name">Furqan Ahmad</div><div class="testi-tag">Verified Patient</div></div><div class="testi-score">★ 5.0</div></div>
-      </div>
-      <div class="testi-card sr d3">
-        <div class="testi-stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p class="testi-body">Dr. Sameer has been my doctor for two years. Very experienced, always calm and composed, consistently provides the right advice. The clinical staff is supportive and helpful. I strongly recommend this clinic.</p>
-        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sujith Kanichukulangara</div><div class="testi-tag">Verified Patient</div></div><div class="testi-score">★ 5.0</div></div>
-      </div>
-      <div class="testi-card sr d1">
-        <div class="testi-stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p class="testi-body">From the moment I walked in, I felt welcomed and well cared for. He listened, explained everything clearly, and made a stressful situation much easier. His compassionate approach and calm demeanor set this clinic apart.</p>
-        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Shijina Shebeer</div><div class="testi-tag">Verified Patient</div></div><div class="testi-score">★ 5.0</div></div>
-      </div>
-      <div class="testi-card sr d2">
-        <div class="testi-stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p class="testi-body">Dr. Sameer is highly knowledgeable, patient, and explains everything clearly. The clinic is clean, modern, and appointments are well-managed with minimal wait times. Highly recommended for excellent medical care.</p>
-        <div class="testi-author"><div class="testi-avatar">Z</div><div><div class="testi-name">Zaid Mohammad Anis</div><div class="testi-tag">Verified Patient</div></div><div class="testi-score">★ 5.0</div></div>
-      </div>
-      <div class="testi-card sr d3">
-        <div class="testi-stars"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <p class="testi-body">One of the top internal medicine doctors in Qatar. The clinic is clean, organized, and the staff is friendly. I've been visiting for years and the experience has always been excellent. Highly recommend.</p>
-        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Shamla Abdulla</div><div class="testi-tag">Verified Patient</div></div><div class="testi-score">★ 5.0</div></div>
-      </div>
-    </div>
-
-    <!-- change 6: MOBILE carousel (shown only on mobile via CSS) -->
-    <div class="testi-carousel" id="testiCarousel">
-      <div class="testi-track" id="testiTrack">
-        <!-- slides injected by JS from the data array -->
-      </div>
-      <div class="testi-nav">
-        <button class="testi-btn" id="testiPrev" aria-label="Previous review">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="testi-dots" id="testiDots"></div>
-        <button class="testi-btn" id="testiNext" aria-label="Next review">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <div class="gmaps-row sr">
-      <a href="https://www.google.com/maps/place/Dr.Sameer%27s+Internal+Medicine+Clinic+(Specialist+Physician)/@25.2833124,51.523192,20z" target="_blank" rel="noopener" class="btn-gmaps">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        View All Reviews on Google Maps
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ GALLERY ══ -->
-<section id="gallery">
-  <div class="wrap">
-
-    <div class="gallery-header sr">
-      <div class="section-eyebrow">Clinic &amp; Achievements</div>
-      <h2 class="section-h2">Inside the Clinic &amp; <em>Beyond</em></h2>
-      <p class="section-sub centered">Awards, recognitions, clinic spaces, and moments that reflect Dr. Sameer's dedication to medicine and his patients.</p>
-    </div>
-
-    <!-- ── Desktop: Tabbed Filmstrip + Expanded ── -->
-    <div class="gal-shell sr">
-
-      <!-- Tab bar -->
-      <div class="gal-tabbar">
-        <div class="gal-tabs">
-          <button class="gal-tab active" onclick="galFilter('all',this)">All</button>
-          <button class="gal-tab" onclick="galFilter('clinic',this)">Clinic</button>
-          <button class="gal-tab" onclick="galFilter('award',this)">Awards</button>
-          <button class="gal-tab" onclick="galFilter('certificate',this)">Certificates</button>
-          <button class="gal-tab" onclick="galFilter('recognition',this)">Recognition</button>
-        </div>
-        <span class="gal-count" id="galCount">8 items</span>
-      </div>
-
-      <!-- Thumbnail filmstrip -->
-      <div class="gal-strip" id="galStrip">
-        <div class="gal-thumb active" data-cat="clinic"   data-idx="0" onclick="galSelect(0,this)">
-          <img src="clinic.webp"      alt="Reception" loading="lazy"/>
-          <div class="gal-thumb-badge">Clinic</div>
-        </div>
-        <div class="gal-thumb" data-cat="clinic"   data-idx="1" onclick="galSelect(1,this)">
-          <img src="Droffice.webp"    alt="Office" loading="lazy"/>
-          <div class="gal-thumb-badge">Clinic</div>
-        </div>
-        <div class="gal-thumb" data-cat="clinic"   data-idx="2" onclick="galSelect(2,this)">
-          <img src="clinicfront.avif" alt="Front" loading="lazy"/>
-          <div class="gal-thumb-badge">Clinic</div>
-        </div>
-        <div class="gal-thumb" data-cat="clinic"   data-idx="3" onclick="galSelect(3,this)">
-          <img src="lobby.webp"       alt="Lobby" loading="lazy"/>
-          <div class="gal-thumb-badge">Clinic</div>
-        </div>
-        <div class="gal-thumb" data-cat="award"       data-idx="4" onclick="galSelect(4,this)">
-          <img src="award.png"        alt="Hind Rattan" loading="lazy" style="object-position:center top"/>
-          <div class="gal-thumb-badge">Award</div>
-        </div>
-        <div class="gal-thumb" data-cat="certificate"  data-idx="5" onclick="galSelect(5,this)">
-          <img src="certificate.png"  alt="IDC Certificate" loading="lazy"/>
-          <div class="gal-thumb-badge">Certificate</div>
-        </div>
-        <div class="gal-thumb" data-cat="recognition"  data-idx="6" onclick="galSelect(6,this)">
-          <img src="picture.png"      alt="Notable Meetings" loading="lazy" style="object-position:center top"/>
-          <div class="gal-thumb-badge">Recognition</div>
-        </div>
-        <div class="gal-thumb" data-cat="certificate"  data-idx="7" onclick="galSelect(7,this)">
-          <img src="picture1.PNG"     alt="Keynote Certificate" loading="lazy"/>
-          <div class="gal-thumb-badge">Certificate</div>
-        </div>
-      </div>
-
-      <!-- Expanded view -->
-      <div class="gal-expand">
-        <!-- Big image -->
-        <div class="gal-expand-img" id="galExpandImg">
-          <img id="galExpandImgEl" src="clinic.webp" alt="Clinic Reception"/>
-          <button class="gal-fullscreen" onclick="openLightbox(galCurrent)" title="View fullscreen" aria-label="View fullscreen">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-          </button>
-        </div>
-
-        <!-- Info panel -->
-        <div class="gal-info">
-          <div class="gal-info-top">
-            <div class="gal-info-tag" id="galInfoTag">Clinic Interior</div>
-            <div class="gal-info-title" id="galInfoTitle">Reception &amp; Front Desk</div>
-            <div class="gal-info-desc" id="galInfoDesc">A warm, welcoming reception space at the heart of the clinic — where every patient visit begins with a friendly face and efficient service.</div>
-          </div>
-          <div class="gal-info-bottom">
-            <div class="gal-counter">
-              <span id="galCounterText">1 / 8</span>
-              <div class="gal-counter-bar">
-                <div class="gal-counter-fill" id="galCounterFill" style="width:12.5%"></div>
-              </div>
-            </div>
-            <div class="gal-nav-row">
-              <button class="gal-nav-btn" onclick="galStep(-1)" aria-label="Previous">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <button class="gal-nav-btn" onclick="galStep(1)" aria-label="Next">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-              <button class="gal-fullscreen-btn" onclick="openLightbox(galCurrent)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-                View Fullscreen
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /gal-shell -->
-
-    <!-- ── Mobile carousel ── -->
-    <div class="gallery-carousel">
-      <div class="g-car-track" id="gCarTrack"></div>
-      <div class="g-car-nav">
-        <button class="g-car-btn" id="gCarPrev" aria-label="Previous">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="g-car-dots" id="gCarDots"></div>
-        <button class="g-car-btn" id="gCarNext" aria-label="Next">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── Lightbox ── -->
-<div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-nav prev" onclick="lbNav(-1)" aria-label="Previous">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <img class="lightbox-img" id="lbImg" src="" alt=""/>
-  <button class="lightbox-nav next" onclick="lbNav(1)" aria-label="Next">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-  </button>
-  <div class="lightbox-caption" id="lbCaption"></div>
-</div>
-
-<!-- ══ CTA ══ -->
-<section id="cta">
-  <div class="cta-bg-shape s1"></div>
-  <div class="cta-bg-shape s2"></div>
-  <div class="wrap" style="position:relative;z-index:1">
-    <div class="cta-inner sr">
-      <div class="cta-chip">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Begin Your Care Journey
-      </div>
-      <h2 class="cta-h2">Your health deserves<br><em>expert attention.</em></h2>
-      <p class="cta-sub">Schedule a consultation with Dr. Sameer Kalandan today. Whether it's a routine check-up, a chronic condition, or a new concern — attentive, evidence-based care awaits from your very first appointment.</p>
-      <div class="cta-btns">
-        <a href="tel:+97466607890" class="cta-btn-white">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call: +974 6660 7890
-        </a>
-        <a href="https://wa.me/97466607890" target="_blank" rel="noopener" class="cta-btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp Us
-        </a>
-      </div>
-      <!-- 2-col info strip: Location & Contact left | Hours & Find Us right -->
-      <div class="cta-info-strip">
-        <div class="cta-info-item">
-          <div class="cta-info-label">📍 Location</div>
-          <div class="cta-info-value">Opposite Musheireb Metro Station, beside Hotel Four Points by Sheraton Al Ghadeer, Street No. 850, Doha, Qatar<br><a href="https://www.google.com/maps/place/Dr.Sameer%27s+Internal+Medicine+Clinic+(Specialist+Physician)/@25.2977206,51.5210532,13.24z/data=!4m6!3m5!1s0x3e45c537ae1f8723:0x5c83bc650f12678d!8m2!3d25.2831152!4d51.5232969!16s%2Fg%2F1hc27xmtl?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" style="margin-top:6px;display:inline-block;font-weight:600;">Get Directions →</a></div>
-        </div>
-        <div class="cta-info-item">
-          <div class="cta-info-label">🕐 Clinic Hours</div>
-          <div class="cta-info-value" style="font-size:12px;line-height:1.8;">
-            <div style="display:grid;grid-template-columns:auto 1fr;gap:0 12px;">
-              <span style="font-weight:600;color:rgba(255,255,255,0.9);white-space:nowrap">Thu – Sat – Sun</span><span>8:30 AM – 1:00 PM</span>
-              <span></span><span>4:30 PM – 9:00 PM</span>
-              <span style="font-weight:600;color:rgba(255,255,255,0.9);white-space:nowrap">Mon – Tue – Wed</span><span>8:30 AM – 1:00 PM</span>
-              <span></span><span>4:30 PM – 9:00 PM</span>
-              <span style="font-weight:600;color:rgba(255,255,255,0.9)">Friday</span><span>4:30 PM – 8:30 PM</span>
-            </div>
-          </div>
-        </div>
-        <div class="cta-info-item">
-          <div class="cta-info-label">📞 Contact</div>
-          <div class="cta-info-value"><a href="tel:+97466607890">+974 6660 7890</a><br><a href="https://wa.me/97466607890" target="_blank" rel="noopener">WhatsApp Consultation</a></div>
-        </div>
-        <div class="cta-info-item">
-          <div class="cta-info-label">🗺️ Find Us</div>
-          <div class="cta-info-value">
-            <a href="https://www.google.com/maps/place/Dr.Sameer%27s+Internal+Medicine+Clinic+(Specialist+Physician)/@25.2977206,51.5210532,13.24z/data=!4m6!3m5!1s0x3e45c537ae1f8723:0x5c83bc650f12678d!8m2!3d25.2831152!4d51.5232969!16s%2Fg%2F1hc27xmtl?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" style="font-weight:600;color:rgba(255,255,255,0.9);">Open in Google Maps ↗</a>
-          </div>
-        </div>
-      </div>
-      <!-- change 5: embedded map -->
-      <div class="cta-map-wrap">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d461.6!2d51.5232969!3d25.2831152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c537ae1f8723%3A0x5c83bc650f12678d!2sDr.Sameer's%20Internal%20Medicine%20Clinic%20(Specialist%20Physician)!5e0!3m2!1sen!2sqa!4v1"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Dr. Sameer's Clinic location on Google Maps">
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ══ -->
-<footer>
-  <div class="wrap">
-    <div class="footer-body">
-      <div>
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img src="logo.jpg" alt="Clinic Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-            <span class="footer-logo-fb" style="display:none">S</span>
-          </div>
-          <div>
-            <div class="footer-clinic-name">Dr. Sameer's<br>Internal Medicine Clinic</div>
-            <div class="footer-clinic-role">Specialist Physician</div>
-          </div>
-        </div>
-        <p class="footer-tagline">Providing compassionate, evidence-based internal medicine care to adults in Doha, Qatar. Trusted by families across the region.</p>
-        <div class="footer-socials">
-          <a class="f-social" href="https://www.google.com/maps/place/Dr.Sameer%27s+Internal+Medicine+Clinic+(Specialist+Physician)/@25.2833124,51.523192,20z" target="_blank" rel="noopener" title="Google Maps"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-          <a class="f-social" href="https://wa.me/97466607890" target="_blank" rel="noopener" title="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          <a class="f-social" href="tel:+97466607890" title="Call"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h5>Quick Links</h5>
-        <div class="footer-links">
-          <a href="#hero">Home</a>
-          <a href="#why">About Dr. Sameer</a>
-          <a href="#services">Services</a>
-          <a href="#testimonials">Patient Reviews</a>
-          <a href="#cta">Book Appointment</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h5>Services</h5>
-        <div class="footer-links">
-          <a href="#services">Diabetes Management</a>
-          <a href="#services">Hypertension Care</a>
-          <a href="#services">Preventive Health</a>
-          <a href="#services">Respiratory Conditions</a>
-          <a href="#services">Thyroid Disorders</a>
-          <a href="#services">Lifestyle &amp; Nutrition</a>
-          <a href="#services">Adult Vaccinations</a>
-          <a href="#services">General Internal Medicine</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h5>Contact &amp; Hours</h5>
-        <div class="footer-contact-row">
-          <div class="f-ci"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="f-ct"><strong>Address</strong><span>Opposite Musheireb Metro Station, Beside Hotel Four Points by Sheraton Al Ghadeer, Street No. 850, Doha, Qatar</span></div>
-        </div>
-        <div class="footer-contact-row">
-          <div class="f-ci"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div class="f-ct"><strong>Phone</strong><a href="tel:+97466607890">+974 6660 7890</a></div>
-        </div>
-        <div class="hours-block">
-          <div class="hrow"><span class="hday">Thu – Sat – Sun</span><span>8:30 AM – 1:00 PM</span></div>
-          <div class="hrow"><span class="hday">&nbsp;</span><span>4:30 PM – 9:00 PM</span></div>
-          <div class="hrow"><span class="hday">Mon – Tue – Wed</span><span>8:30 AM – 1:00 PM</span></div>
-          <div class="hrow"><span class="hday">&nbsp;</span><span>4:30 PM – 9:00 PM</span></div>
-          <div class="hrow"><span class="hday">Friday</span><span>4:30 PM – 8:30 PM</span></div>
-        </div>
-        <a href="https://www.google.com/maps/place/Dr.Sameer%27s+Internal+Medicine+Clinic+(Specialist+Physician)/@25.2977206,51.5210532,13.24z/data=!4m6!3m5!1s0x3e45c537ae1f8723:0x5c83bc650f12678d!8m2!3d25.2831152!4d51.5232969!16s%2Fg%2F1hc27xmtl?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="f-maps-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          View on Google Maps
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-row">
-      <div class="footer-copy">© 2025 Dr. Sameer's Internal Medicine Clinic. All rights reserved.</div>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms &amp; Conditions</a>
-        <a href="#">Sitemap</a>
-      </div>
-      <div class="footer-credit">Designed &amp; Developed by <a href="https://2swan.in" target="_blank" rel="noopener">2 Swan</a></div>
-    </div>
-  </div>
-</footer>
 
 <script>
-/* ── Nav scroll ── */
-const nav = document.getElementById('siteNav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), {passive:true});
+  // Set bg-image div height = natural pixel height of background.png so it's fully scrollable
+  (function() {
+    var img = new Image();
+    img.onload = function() {
+      var vw = window.innerWidth;
+      // natural rendered height when width = 100vw
+      var renderedH = (img.naturalHeight / img.naturalWidth) * vw;
+      var el = document.getElementById('bg-image');
+      // add a little extra so the last scroll position isn't cut short
+      el.style.height = Math.max(renderedH, window.innerHeight * 1.5) + 'px';
+    };
+    img.src = 'background.png';
+  })();
 
-/* ── Scroll reveal ── */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)} });
-}, {threshold:0.08});
-document.querySelectorAll('.sr').forEach(el => io.observe(el));
+  // Forward wheel + touch scroll to bg layer
+  document.addEventListener('wheel', function(e) {
+    document.getElementById('bg-scroll').scrollTop += e.deltaY;
+  }, { passive: true });
 
-/* ── Smooth scroll ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-88,behavior:'smooth'})}
-  });
-});
-
-/* ── Active nav ── */
-const secIds = ['hero','why','services','cta'];
-const navAs = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = 'hero';
-  secIds.forEach(id => {
-    const el = document.getElementById(id);
-    if(el && el.getBoundingClientRect().top < 120) cur = id;
-  });
-  navAs.forEach(a => a.classList.toggle('is-active', a.getAttribute('href')==='#'+cur));
-}, {passive:true});
-
-/* ── Mobile testimonial carousel (change 6) ── */
-const reviews = [
-  {init:'R', name:'Ramshida K.A',    body:'He was attentive and thorough, taking time to listen carefully and explain the condition and treatment plan clearly. His calm and reassuring approach made the visit comfortable. I would confidently recommend him.'},
-  {init:'F', name:'Furqan Ahmad',     body:'Excellent experience. The staff were friendly and efficient, and the environment was clean and comfortable. I highly recommend Dr. Sameer Kalandan to anyone looking for a knowledgeable and caring physician.'},
-  {init:'S', name:'Sujith Kanichukulangara', body:'Dr. Sameer has been my doctor for two years. Very experienced, always calm and composed, consistently provides the right advice. The clinical staff is supportive and helpful. Strongly recommended.'},
-  {init:'S', name:'Shijina Shebeer', body:'From the moment I walked in, I felt welcomed and well cared for. He listened, explained everything clearly, and made a stressful situation much easier. His compassionate approach sets this clinic apart.'},
-  {init:'Z', name:'Zaid Mohammad Anis', body:'Dr. Sameer is highly knowledgeable, patient, and explains everything clearly. The clinic is clean, modern, and appointments are well-managed with minimal wait times. Highly recommended.'},
-  {init:'S', name:'Shamla Abdulla',  body:'One of the top internal medicine doctors in Qatar. The clinic is clean, organized, and the staff is friendly. I\'ve been visiting for years and the experience has always been excellent.'},
-  {init:'S', name:'Safiya Hassan',   body:'Excellent clinic with supportive staff and a compassionate doctor. The environment is clean, and the service is prompt. Overall, it was an enjoyable experience.'},
-  {init:'A', name:'Asianet Momentum', body:'Best general physician in Doha. Quick service, detailed explanations, and effective treatment. I would definitely recommend this clinic.'},
-  {init:'R', name:'Riyas Al Reem Muhammed', body:'I had a good experience with Dr. Sameer. He provided effective treatment and helpful medical advice, and his assistant took good care of me.'},
-  {init:'S', name:'Suha Shebin',     body:'I\'ve been visiting this clinic for years. The staff is professional, attentive, and genuinely caring. The doctors take the time to listen and provide the best treatment.'},
-  {init:'H', name:'Happy Sarabosing', body:'Very accommodating clinic. All the staff are very nice. Excellent service.'},
-  {init:'A', name:'AJIB KONDALAM',   body:'Friendly atmosphere and an experienced physician. Highly recommended.'},
-];
-
-let current = 0, autoTimer = null;
-
-function starsSVG(){
-  return Array(5).fill('<svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>').join('');
-}
-
-function buildCarousel(){
-  const track = document.getElementById('testiTrack');
-  const dots  = document.getElementById('testiDots');
-  if(!track || !dots) return;
-  track.innerHTML = reviews.map((r,i) => `
-    <div class="testi-slide${i===0?' active':''}" data-idx="${i}">
-      <div class="testi-stars">${starsSVG()}</div>
-      <p class="testi-body">${r.body}</p>
-      <div class="testi-author">
-        <div class="testi-avatar">${r.init}</div>
-        <div><div class="testi-name">${r.name}</div><div class="testi-tag">Verified Patient</div></div>
-        <div class="testi-score">★ 5.0</div>
-      </div>
-    </div>`).join('');
-  dots.innerHTML = reviews.map((_,i) => `<div class="testi-dot${i===0?' active':''}" data-idx="${i}"></div>`).join('');
-  dots.querySelectorAll('.testi-dot').forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
-  document.getElementById('testiPrev').addEventListener('click', () => goTo((current - 1 + reviews.length) % reviews.length));
-  document.getElementById('testiNext').addEventListener('click', () => goTo((current + 1) % reviews.length));
-  startAuto();
-}
-
-function goTo(idx){
-  document.querySelectorAll('#testiTrack .testi-slide').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('#testiDots .testi-dot').forEach(d => d.classList.remove('active'));
-  current = idx;
-  document.querySelector(`#testiTrack [data-idx="${idx}"]`).classList.add('active');
-  document.querySelector(`#testiDots [data-idx="${idx}"]`).classList.add('active');
-  resetAuto();
-}
-
-function startAuto(){
-  autoTimer = setInterval(() => goTo((current + 1) % reviews.length), 4500);
-}
-function resetAuto(){ clearInterval(autoTimer); startAuto(); }
-
-buildCarousel();
-
-/* ══════════════════════════════════════
-   GALLERY — tabbed filmstrip + expanded
-══════════════════════════════════════ */
-const galleryItems = [
-  { src:'clinic.webp',      cat:'clinic',      tag:'Clinic Interior',        title:'Reception & Front Desk',              desc:'A warm, welcoming reception at the heart of the clinic — where every patient visit begins with a friendly face and efficient service.' },
-  { src:'Droffice.webp',    cat:'clinic',      tag:'Clinic Interior',        title:"Doctor's Consultation Room",          desc:"Dr. Sameer's private consultation space — designed for focused, uninterrupted conversations between physician and patient." },
-  { src:'clinicfront.avif', cat:'clinic',      tag:'Clinic Exterior',        title:'Clinic Entrance, Doha',               desc:'Conveniently located opposite Musheireb Metro Station, beside Hotel Four Points by Sheraton Al Ghadeer, Street No. 850.' },
-  { src:'lobby.webp',       cat:'clinic',      tag:'Clinic Interior',        title:'Patient Waiting Area',                desc:'A comfortable, well-organised waiting area with natural greenery — designed to make every patient feel at ease from the moment they arrive.' },
-  { src:'award.png',        cat:'award',       tag:'Award',                  title:'Hind Rattan Award — New Delhi, 2005', desc:'Presented to Dr. Sameer Kalandan (Qatar) for Outstanding Services, Achievements and Contributions at the 24th International Congress of NRIs on Republic Day, 25th January 2005.' },
-  { src:'certificate.png',  cat:'certificate', tag:'Certification',          title:'IDC Qatar — Lifetime Member since 2002', desc:"Certificate presented by the Indian Doctors Club Qatar in recognition of Dr. Sameer Kalandan's services and dedication to the Indian Medical Fraternity and Community in Qatar, 25th January 2021." },
-  { src:'picture.png',      cat:'recognition', tag:'Distinguished Meetings', title:'With Honourable National Leaders',    desc:"Dr. Sameer Kalandan at distinguished gatherings with national leaders — reflecting his standing as a respected physician and community figure in Qatar and internationally." },
-  { src:'picture1.PNG',     cat:'certificate', tag:'International Recognition', title:'Best Keynote Lecture — Zurich, 2018', desc:'Certificate of Recognition awarded by Conference Series and the Journal of Hypertension: Open Access for the Best Keynote Lecture at the 6th International Conference on Hypertension & Metabolic, Zurich, Switzerland, September 18–21, 2018.' },
-];
-
-let galCurrent = 0;
-let galFiltered = galleryItems.map((_,i) => i);
-
-function galSelect(idx, thumbEl) {
-  galCurrent = idx;
-  document.querySelectorAll('.gal-thumb').forEach(t => t.classList.remove('active'));
-  const target = thumbEl || document.querySelector(`.gal-thumb[data-idx="${idx}"]`);
-  if (target) target.classList.add('active');
-  const wrap = document.getElementById('galExpandImg');
-  const img  = document.getElementById('galExpandImgEl');
-  wrap.classList.add('changing');
-  setTimeout(() => {
-    img.src = galleryItems[idx].src;
-    img.alt = galleryItems[idx].title;
-    wrap.classList.remove('changing');
-  }, 180);
-  document.getElementById('galInfoTag').textContent  = galleryItems[idx].tag;
-  document.getElementById('galInfoTitle').innerHTML  = galleryItems[idx].title;
-  document.getElementById('galInfoDesc').textContent = galleryItems[idx].desc;
-  const pos = galFiltered.indexOf(idx) + 1;
-  const tot = galFiltered.length;
-  document.getElementById('galCounterText').textContent  = pos + ' / ' + tot;
-  document.getElementById('galCounterFill').style.width  = ((pos / tot) * 100) + '%';
-}
-
-function galStep(dir) {
-  const pos    = galFiltered.indexOf(galCurrent);
-  const newIdx = galFiltered[(pos + dir + galFiltered.length) % galFiltered.length];
-  galSelect(newIdx, null);
-  galResetAuto();
-}
-
-function galFilter(cat, btn) {
-  document.querySelectorAll('.gal-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  const thumbs = document.querySelectorAll('.gal-thumb');
-  galFiltered = [];
-  thumbs.forEach(t => {
-    const match = cat === 'all' || t.dataset.cat === cat;
-    t.classList.toggle('hidden', !match);
-    if (match) galFiltered.push(+t.dataset.idx);
-  });
-  document.getElementById('galCount').textContent = galFiltered.length + ' item' + (galFiltered.length !== 1 ? 's' : '');
-  if (galFiltered.length > 0) galSelect(galFiltered[0], null);
-}
-
-galSelect(0, document.querySelector('.gal-thumb[data-idx="0"]'));
-
-/* ── Desktop gallery auto-rotation ── */
-let galAutoTimer = null;
-function galStartAuto() {
-  galAutoTimer = setInterval(() => {
-    const pos    = galFiltered.indexOf(galCurrent);
-    const newIdx = galFiltered[(pos + 1) % galFiltered.length];
-    galSelect(newIdx, null);
-    /* intentionally NO scrollIntoView here — prevents page jumping */
-  }, 4000);
-}
-function galResetAuto() { clearInterval(galAutoTimer); galStartAuto(); }
-galStartAuto();
-
-/* Pause auto on user interaction with tabs or thumbs */
-document.querySelectorAll('.gal-tab, .gal-thumb, .gal-nav-btn').forEach(el => {
-  el.addEventListener('click', () => galResetAuto());
-});
-
-/* ── Lightbox ── */
-let lbCurrent = 0;
-function openLightbox(idx) {
-  lbCurrent = idx;
-  document.getElementById('lbImg').src             = galleryItems[idx].src;
-  document.getElementById('lbImg').alt             = galleryItems[idx].title;
-  document.getElementById('lbCaption').textContent = galleryItems[idx].title;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function closeLightboxOnBg(e) {
-  if (e.target === document.getElementById('lightbox')) closeLightbox();
-}
-function lbNav(dir) {
-  lbCurrent = (lbCurrent + dir + galleryItems.length) % galleryItems.length;
-  openLightbox(lbCurrent);
-}
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'ArrowLeft')  lbNav(-1);
-  if (e.key === 'ArrowRight') lbNav(1);
-  if (e.key === 'Escape')     closeLightbox();
-});
-
-/* ── Mobile gallery carousel ── */
-let gCur = 0, gTimer = null;
-function buildGalleryCarousel() {
-  const track = document.getElementById('gCarTrack');
-  const dots  = document.getElementById('gCarDots');
-  if (!track || !dots) return;
-  track.innerHTML = galleryItems.map((item, i) => `
-    <div class="g-car-slide${i===0?' active':''}" data-gidx="${i}">
-      <img src="${item.src}" alt="${item.title}" loading="lazy"/>
-      <div class="g-car-info">
-        <span class="g-car-tag">${item.tag}</span>
-        <span class="g-car-title">${item.title}</span>
-      </div>
-    </div>`).join('');
-  dots.innerHTML = galleryItems.map((_,i) =>
-    `<button class="g-car-dot${i===0?' active':''}" data-gidx="${i}" aria-label="Slide ${i+1}"></button>`).join('');
-  dots.querySelectorAll('.g-car-dot').forEach(d =>
-    d.addEventListener('click', () => gGoTo(+d.dataset.gidx)));
-  document.getElementById('gCarPrev').addEventListener('click', () => gGoTo((gCur-1+galleryItems.length)%galleryItems.length));
-  document.getElementById('gCarNext').addEventListener('click', () => gGoTo((gCur+1)%galleryItems.length));
-  gStartAuto();
-}
-function gGoTo(idx) {
-  document.querySelectorAll('.g-car-slide').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.g-car-dot').forEach(d => d.classList.remove('active'));
-  gCur = idx;
-  document.querySelector('.g-car-slide[data-gidx="'+idx+'"]').classList.add('active');
-  document.querySelector('.g-car-dot[data-gidx="'+idx+'"]').classList.add('active');
-  gResetAuto();
-}
-function gStartAuto() { gTimer = setInterval(() => gGoTo((gCur+1)%galleryItems.length), 3800); }
-function gResetAuto()  { clearInterval(gTimer); gStartAuto(); }
-buildGalleryCarousel();
+  var _ty = 0;
+  document.addEventListener('touchstart', function(e) { _ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchmove', function(e) {
+    var bg = document.getElementById('bg-scroll');
+    bg.scrollTop += _ty - e.touches[0].clientY;
+    _ty = e.touches[0].clientY;
+  }, { passive: true });
 </script>
-</body>
-</html>
+
+<!-- Card -->
+<div id="card-wrapper">
+  <main class="w-full max-w-[28rem] mx-4 flex flex-col glass-card border border-border-subtle rounded-3xl overflow-hidden animate-fade-up"
+        style="height: min(92vh, 820px);">
+
+    <!-- Hero Image -->
+    <section class="w-full relative flex-shrink-0" style="height: 260px;" data-purpose="hero-image-container">
+      <img alt="Header" class="w-full h-full hero-image-fit"
+           src="header.png"
+           style="object-fit: cover; object-position: top;"/>
+
+    </section>
+
+    <!-- Content -->
+    <section class="px-6 text-center pt-5 z-20 flex flex-col items-center w-full pb-4 flex-1 justify-center"
+             data-purpose="expired-message">
+
+      <h1 class="font-display text-[26px] leading-[1.15] tracking-tight text-primary mb-1 whitespace-nowrap">
+        Demo Access Token Expired
+      </h1>
+      <h2 class="font-display text-[15px] font-normal leading-[1.5] text-warm-gold mb-4 italic opacity-90">
+        This Website Is Not Currently Live
+      </h2>
+
+      <!-- Badge -->
+      <div class="bg-primary/5 text-primary/70 text-[10px] font-semibold px-3 py-1 rounded-full mb-4 tracking-[0.18em] uppercase border border-primary/10">
+        Demonstration Preview · Not For Public Use
+      </div>
+
+      <!-- Divider -->
+      <div class="flex items-center w-28 mb-4 opacity-40">
+        <div class="h-[1px] bg-outline-variant flex-grow"></div>
+        <div class="mx-3 text-warm-gold">
+          <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="h-[1px] bg-outline-variant flex-grow"></div>
+      </div>
+
+      <p class="text-on-surface-variant text-[13px] leading-relaxed max-w-xs mb-5 font-light">
+        If you're looking for the live version and believe it was taken down by mistake, feel free to reach out.
+      </p>
+
+      <!-- WhatsApp -->
+      <a class="w-full group cursor-pointer" href="https://wa.me/919988067867" target="_blank" rel="noopener noreferrer">
+        <div class="w-full bg-white border border-border-subtle rounded-2xl py-4 px-5 flex items-center justify-between transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1 group-active:scale-[0.98]">
+          <div class="flex items-center gap-4">
+            <div class="bg-warm-gold/10 p-3 rounded-xl transition-colors group-hover:bg-warm-gold">
+              <svg class="h-5 w-5 text-warm-gold group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <div class="text-left">
+              <p class="text-warm-gold text-[10px] font-bold tracking-[0.2em] uppercase mb-0.5">Chat on WhatsApp</p>
+              <p class="text-primary font-semibold text-lg tracking-tight">+91 99880 67867</p>
+            </div>
+          </div>
+          <div class="text-outline/40 transition-transform duration-300 group-hover:translate-x-1">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <p class="text-on-surface-variant text-xs mt-4 italic">Thank you for your understanding.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full px-6 pb-4 pt-1 flex-shrink-0" data-purpose="page-footer">
+      <div class="flex items-center justify-center w-full mb-2">
+        <div class="h-[1px] bg-outline-variant flex-grow opacity-30"></div>
+        <div class="mx-4 text-warm-gold opacity-40 hover:opacity-100 transition-opacity">
+          <svg fill="none" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="0.5"/>
+            <path d="M8 15C8 15 9 17 12 17C15 17 16 15 16 13.5C16 12 14.5 11.5 12 11C9.5 10.5 8 10 8 8.5C8 7 9 5 12 5C15 5 16 7 16 7" stroke="currentColor" stroke-linecap="round" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="h-[1px] bg-outline-variant flex-grow opacity-30"></div>
+      </div>
+      <p class="text-center text-[10px] text-on-surface-variant/60 tracking-[0.1em] font-medium uppercase">
+        For more designs, visit <a class="text-warm-gold hover:text-secondary transition-colors" href="https://2swan.in">2Swan.in</a> — Portfolio
+      </p>
+    </footer>
+
+  </main>
+</div>
+
+</body></html>
